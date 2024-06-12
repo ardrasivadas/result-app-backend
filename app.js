@@ -16,6 +16,19 @@ app.post("/add", (req,res)=>{
     res.json({status:"done"})
 })
 
+
+app.get("/view",(req,res)=>{
+    resultmodel.find().then(
+        (data)=>{
+            res.json(data)
+        }
+    ).catch(
+        (error)=>{
+            res.json(error)
+        }
+    )
+})
+
 app.listen(8080,()=>{
     console.log("server started")
 })
